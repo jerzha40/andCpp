@@ -9,19 +9,20 @@
 
 struct android_app;
 
-class Renderer {
+class Renderer
+{
 public:
     /*!
      * @param pApp the android_app this Renderer belongs to, needed to configure GL
      */
-    inline Renderer(android_app *pApp) :
-            app_(pApp),
-            display_(EGL_NO_DISPLAY),
-            surface_(EGL_NO_SURFACE),
-            context_(EGL_NO_CONTEXT),
-            width_(0),
-            height_(0),
-            shaderNeedsNewProjectionMatrix_(true) {
+    inline Renderer(android_app *pApp) : app_(pApp),
+                                         display_(EGL_NO_DISPLAY),
+                                         surface_(EGL_NO_SURFACE),
+                                         context_(EGL_NO_CONTEXT),
+                                         width_(0),
+                                         height_(0),
+                                         shaderNeedsNewProjectionMatrix_(true)
+    {
         initRenderer();
     }
 
@@ -71,4 +72,4 @@ private:
     std::vector<Model> models_;
 };
 
-#endif //ANDROIDGLINVESTIGATIONS_RENDERER_H
+#endif // ANDROIDGLINVESTIGATIONS_RENDERER_H
