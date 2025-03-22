@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/deps/glad"]
+	path = app/src/main/cpp/deps/glad
+	url = https://github.com/Dav1dde/glad.git
