@@ -56,7 +56,7 @@ private:
      * Creates the models for this sample. You'd likely load a scene configuration from a file or
      * use some other setup logic in your full game.
      */
-    void createModels();
+    void createModels(std::string assetsPath);
 
     android_app *app_;
     EGLDisplay display_;

@@ -236,7 +236,8 @@ void Renderer::initRenderer() {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     // get some demo models into memory
-    createModels();
+    createModels("icon1.png");
+    createModels("android_robot.png");
 }
 
 void Renderer::updateRenderArea() {
@@ -259,7 +260,7 @@ void Renderer::updateRenderArea() {
 /**
  * @brief Create any demo models we want for this demo.
  */
-void Renderer::createModels() {
+void Renderer::createModels(std::string assetsPath) {
     /*
      * This is a square:
      * 0 --- 1
@@ -269,7 +270,7 @@ void Renderer::createModels() {
      * 3 --- 2
      */
     std::vector<Vertex> vertices = {
-            Vertex(Vector3{1, 1, 0}, Vector2{0, 0}), // 0
+            Vertex(Vector3{1, 2, 0}, Vector2{0, 0}), // 0
             Vertex(Vector3{-1, 1, 0}, Vector2{1, 0}), // 1
             Vertex(Vector3{-1, -1, 0}, Vector2{1, 1}), // 2
             Vertex(Vector3{1, -1, 0}, Vector2{0, 1}) // 3
@@ -283,7 +284,7 @@ void Renderer::createModels() {
     // Note: there is no texture management in this sample, so if you reuse an image be careful not
     // to load it repeatedly. Since you get a shared_ptr you can safely reuse it in many models.
     auto assetManager = app_->activity->assetManager;
-    auto spAndroidRobotTexture = TextureAsset::loadAsset(assetManager, "android_robot.png");
+    auto spAndroidRobotTexture = TextureAsset::loadAsset(assetManager, assetsPath);
 
     // Create a model and put it in the back of the render list.
     models_.emplace_back(vertices, indices, spAndroidRobotTexture);
